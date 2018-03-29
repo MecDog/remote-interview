@@ -1,0 +1,42 @@
+{
+  "name": "showmecode",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --inline --progress",
+    "build-server": "tsc --project ./server",
+    "dev-server": "supervisor -w ./dist/server/index.js ./dist/server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "talk is cheap, show me the code",
+  "dependencies": {
+    "@types/express": "^4.11.0",
+    "@types/node": "^8.5.2",
+    "@types/socket.io": "^1.4.31",
+    "@types/socket.io-client": "^1.4.32",
+    "express": "^4.16.2",
+    "monaco-editor": "^0.10.1",
+    "socket.io": "^2.0.4",
+    "vue": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.2.17",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "copy-webpack-plugin": "^4.3.1",
+    "html-webpack-plugin": "^2.30.1",
+    "supervisor": "^0.12.0",
+    "ts-loader": "^3.2.0",
+    "typescript": "^2.6.2"
+  }
+}

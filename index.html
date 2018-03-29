@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <title>Document</title>
+  <style>
+    body,html{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #header {
+      margin: 0;
+      background-color: #1e1e1e;
+      padding: 20px 0;
+      color: #2e6dd1;
+    }
+    #container {
+      position: relative
+    }
+    #cursor{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 0;
+      top: 0;
+      background: url(assets/cursor.png) center/100% no-repeat;
+      z-index: 999;
+    }
+    #form{
+      position: absolute;
+      left: 50%;
+      top:40%;
+      transform: translate(-50%,-50%)
+    }
+    #form input{
+      -webkit-appearance: none;
+      font-size: 2em;
+      border: none;
+      border-bottom: 1px solid #9ef771;
+      color: #8b8b8c;
+      outline: 0;
+      text-align: center;
+      width: 256px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div style="width:100%;height:100%" id='entry'>
+    <form id='form'>
+        <label style="font-size: 3.0em;font-weight:200">room:</label>
+        <input type="text" id="room" name="room">
+    </form>
+  </div>
+    
+  <div id="main" style="display:none">
+      <h2 id="header">talk is cheap,show me the code</h2>
+      <div id="container">
+        <div id="cursor"></div>
+      </div>
+  </div>
+  <script src="vs/loader.js"></script>
+</body>
+</html>
