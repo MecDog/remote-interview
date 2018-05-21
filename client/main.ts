@@ -6,7 +6,7 @@ let roomId =(new URLSearchParams(window.location.search.slice(1))).get('room')
 if(roomId){
   $('#entry').hide();
   $('#main').show();
-  loadEditor(decodeURIComponent(roomId))
+  loadEditor(decodeURIComponent(roomId));
 } else {
   $('#entry').show();
   $('#main').hide();
@@ -16,13 +16,14 @@ function loadEditor(roomId: string) {
   (window as any).require(['vs/editor/editor.main'], function() {
     let $container = $('#container')
     $container.height(window.innerHeight - 53)
-    var editor = monaco.editor.create($container[0], {
+    let editor = monaco.editor.create($container[0], {
       value: [
         ''
       ].join('\n'),
       language: 'javascript',
       theme: 'vs-dark',
     })
+    let model = editor.getModel()
     let socket = io('//localhost:3001/',{
       path:'/showCode',
       query:{
@@ -31,6 +32,11 @@ function loadEditor(roomId: string) {
     })
     let log = console.log
     let cursor =$('#cursor')
+    // 监听语言项是否改变
+    document.querySelector('#language-select')!.addEventListener('change', (e) => {
+      let val: string = (e.target as any).value
+      monaco.editor.setModelLanguage(model, val)
+    })
     // 代码改变
     editor.onDidChangeModelContent((e) => {
       if(e.isFlush) return
